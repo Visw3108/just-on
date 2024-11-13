@@ -567,9 +567,8 @@
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin: 60px auto;
+    margin: 100px auto;
     transition: transform 0.3s ease;
-    margin-bottom: 50px;
   }
   
   
@@ -578,7 +577,7 @@
     margin-bottom: 20px;
     color: #333333;
     font-size: 32px;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: var(--ff-league-spartan);
     font-weight: 600;
     letter-spacing: 0.5px;
   }
