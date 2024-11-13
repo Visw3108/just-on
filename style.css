@@ -618,7 +618,8 @@ body {
 
 .highlight {
   color: var(--secondary-color);
-  font-size: 3.5rem;
+  font-size: 4rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .content p {
