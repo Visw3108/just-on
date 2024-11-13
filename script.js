@@ -42,6 +42,15 @@ navbarLinks.forEach(link => {
   link.addEventListener("click", closeNavbar);
 });
 
+// Close the navbar if the user clicks outside of it
+document.addEventListener("click", function (event) {
+  // Check if the click was outside the navbar and toggler
+  if (!navbar.contains(event.target) && !navToggler.contains(event.target)) {
+    closeNavbar();
+  }
+});
+
+
 
 
 
