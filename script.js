@@ -27,16 +27,20 @@ const navToggler = document.querySelector("[data-nav-toggler]");
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   navToggler.classList.toggle("active");
-}
+};
 
 addEventOnElem(navToggler, "click", toggleNavbar);
 
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
-}
+};
 
-addEventOnElem(navbarLinks, "click", closeNavbar);
+// Iterate over each navbar link and add the event listener
+navbarLinks.forEach(link => {
+  addEventOnElem(link, "click", closeNavbar);
+});
+
 
 
 
