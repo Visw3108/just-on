@@ -526,6 +526,7 @@ body {
     top: 20px;
     right: 20px;
     cursor: pointer;
+    z-index: 11; /* Ensure it is above the navbar */
   }
 
   /* Center and expand dropdown for mobile */
@@ -545,6 +546,12 @@ body {
     text-align: center;
     width: 100%;
   }
+
+  /* Adjust dropdown link font size and padding on smaller screens */
+  .dropdown-link {
+    font-size: var(--fs-5);
+    padding: 10px 20px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -557,6 +564,7 @@ body {
     font-size: var(--fs-6); /* Smaller font for mobile */
   }
 }
+
 
 
 
