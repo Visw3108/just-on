@@ -525,6 +525,26 @@
   -->
   <script src="script.js" defer></script>
 
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+    
+        var formData = new FormData(this);
+    
+        // Send the form data using AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'submit_contact.php', true);
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                alert('Data submitted successfully!');
+            } else {
+                alert('Error submitting data.');
+            }
+        };
+        xhr.send(formData);
+    });
+  </script>
+
   <!-- 
     - ionicon link
   -->
