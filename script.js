@@ -29,16 +29,17 @@ const toggleNavbar = function () {
   navToggler.classList.toggle("active");
 };
 
-addEventOnElem(navToggler, "click", toggleNavbar);
+// Add event listener to the toggler to toggle the navbar
+navToggler.addEventListener("click", toggleNavbar);
 
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
 };
 
-// Iterate over each navbar link and add the event listener
+// Add event listener to each navbar link to close the navbar
 navbarLinks.forEach(link => {
-  addEventOnElem(link, "click", closeNavbar);
+  link.addEventListener("click", closeNavbar);
 });
 
 
