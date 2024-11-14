@@ -1279,14 +1279,17 @@ body {
 .our-works {
   text-align: center;
   padding: 50px 20px;
-  background-color: #ff0000;
+  background-color: var(--primary-color);
   transition: transform 0.5s ease-in-out;
 }
 
 .our-works h1 {
   font-size: 2em;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   color: #fff;
+  font-size: 40px;
+  font-family: var(--ff-league-spartan);
+  
 }
 
 .our-works p {
