@@ -730,6 +730,98 @@ body {
   }
 }
 
+
+
+
+/* Welcome Section Styling */
+.welcome-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px;
+  background-color: #fff;
+}
+
+.welcome-content {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.welcome-content.fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.welcome-icon {
+  width: 80px;
+  margin: 0 auto; /* Centers the icon horizontally */
+  display: block; /* Ensures the margin auto centers it */
+}
+
+.top-icon {
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+.welcome-title {
+  font-size: 2.7rem;
+  color: #333;
+  font-family: var(--ff-league-spartan);
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.welcome-description {
+  font-size: 1.7rem;
+  color: #666;
+  font-family: var(--ff-roboto);
+  margin-bottom: 20px;
+}
+
+.underline {
+  width: 100px;
+  height: 3px;
+  background-color: var(--secondary-color);
+  margin: 10px auto 0 auto; /* Centers the underline */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-title {
+      font-size: 1.8rem;
+  }
+
+  .welcome-description {
+      font-size: 0.9rem;
+  }
+
+  .welcome-icon {
+      width: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section {
+      padding: 20px;
+  }
+
+  .welcome-title {
+      font-size: 1.5rem;
+  }
+
+  .welcome-description {
+      font-size: 0.85rem;
+  }
+
+  .welcome-icon {
+      width: 20px;
+  }
+}
+
+
+
+
 /* General styling for all screen sizes */
 /* Search and Filter container */
 .search-filter-container {
@@ -936,6 +1028,7 @@ body {
   color: #666;
   margin-bottom: 20px;
   font-family: var(--ff-roboto);
+  text-align: justify;
 }
 
 .read-more-btn {
@@ -1438,7 +1531,7 @@ body {
   background-image: url('/assets/images/why-chhose-us.jpg'); /* Update with your background image URL */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Fixes the background */
+  background-attachment: fixed;
   padding: 60px 20px;
   text-align: center;
   color: #ffffff;
@@ -1452,7 +1545,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for text readability */
+  background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
   z-index: 1;
 }
 
@@ -1489,33 +1582,32 @@ body {
   padding: 20px;
   border-radius: 10px;
   text-align: center;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
+  transform: scale(1); /* Initial scale */
 }
 
 .feature:hover {
-  transform: scale(1.05);
+  transform: scale(1.1); /* Zoom-in effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+  background-color: var(--lavender-gray); /* Optional background color change */
 }
 
 .feature .icon {
   background-color: #d4a017;
-  border-radius: 50%; /* Makes the icon container circular */
-  width: 60px; /* Fixed width to make it round */
-  height: 60px; /* Fixed height to make it round */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 15px auto; /* Centers the icon horizontally */
+  margin: 0 auto 15px auto;
 }
 
 .feature img {
   width: 60px;
   height: 60px;
   border-radius: 60%;
-  -webkit-border-radius: 60%;
-  -moz-border-radius: 60%;
-  -ms-border-radius: 60%;
-  -o-border-radius: 60%;
 }
 
 .feature h3 {
@@ -1537,33 +1629,33 @@ body {
   animation: fadeInZoom 0.9s forwards;
   opacity: 0;
   transform: scale(0.9);
-  -webkit-animation: fadeInZoom 0.9s forwards;
 }
 
 @keyframes fadeInZoom {
   to {
-      opacity: 1;
-      transform: scale(1);
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
 /* Responsive Styling */
 @media (max-width: 1024px) {
   .feature {
-      width: 45%;
+    width: 45%;
   }
 }
 
 @media (max-width: 768px) {
   .features {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
   .feature {
-      width: 80%;
-      margin-bottom: 20px;
+    width: 80%;
+    margin-bottom: 20px;
   }
 }
+
 
 
 

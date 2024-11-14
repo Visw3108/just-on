@@ -729,6 +729,7 @@
     line-height: 1.6;
     margin-bottom: 20px;
     font-family: var(--ff-roboto);
+    text-align: justify;
 }
 
 .event-image {
@@ -885,6 +886,7 @@
     line-height: 1.6;
     color: #333;
     font-family: Arial, var(--ff-roboto);
+    text-align: justify;
 }
 
 /* Image Styling */
@@ -1003,6 +1005,7 @@
     font-size: 18px;
     line-height: 1.6;
     color: #333;
+    text-align: justify;
 }
 
 /* Responsive Design */
@@ -1071,6 +1074,7 @@
     line-height: 1.6;
     color: #333;
     font-family: var(--ff-roboto);
+    text-align: justify;
 }
 
 /* Image Styling */
@@ -1163,6 +1167,7 @@
   font-size: 1em;
   line-height: 1.6;
   margin-top: 15px;
+  text-align: justify;
 }
 .image-content {
   flex: 1;
