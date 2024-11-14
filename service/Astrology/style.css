@@ -1736,6 +1736,19 @@
     list-style: none;
   }
   
+
+  .phone-numbers {
+    white-space: nowrap; /* Prevents line breaks within the element */
+    display: flex;
+    gap: 5px; /* Optional: adds a bit of space between items */
+    align-items: center;
+}
+
+.phone-numbers a {
+    text-decoration: none; /* Optional: removes underline from links */
+    color: inherit; /* Keeps the link color consistent with text */
+}
+
   .social-links li a {
     display: inline-block;
   }
