@@ -190,26 +190,67 @@ carousels.forEach(carousel => {
 
   /*  <!---------------------  TESTIMONIAL ------------------------> */
 
-   const sliderContainer = document.querySelector('.testimonial-container');
-      const dots = document.querySelectorAll('.dot');
-      let index = 0;
+  let currentIndex = 0;
+let visibleCards = 3; // Default visible cards for large screens
+const experts = document.querySelector('.experts');
+const totalCards = document.querySelectorAll('.expert-card').length;
+const dotsContainer = document.querySelector('.carousel-dots');
 
-      function changeSlide() {
-        index = (index + 1) % dots.length;
-        updateSlider();
-      }
+// Adjust number of visible cards based on screen width
+function updateVisibleCards() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 992) {
+        visibleCards = 3;
+    } else if (screenWidth > 768) {
+        visibleCards = 2;
+    } else {
+        visibleCards = 1;
+    }
 
-      function updateSlider() {
-        sliderContainer.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach(dot => dot.classList.remove('active'));
-        dots[index].classList.add('active');
-      }
+    createDots();
+    updateSlidePosition();
+}
 
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          index = i;
-          updateSlider();
-        });
-      });
+// Create dots for navigation
+function createDots() {
+    dotsContainer.innerHTML = '';
+    const totalSlides = Math.ceil(totalCards / visibleCards);
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === currentIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+}
 
-      setInterval(changeSlide, 3000); // Auto-scroll every 3 seconds
+// Update slide position based on the current index
+function updateSlidePosition() {
+    const offset = -currentIndex * (100 / visibleCards);
+    experts.style.transform = `translateX(${offset}%)`;
+
+    // Update active dot
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+// Go to a specific slide
+function goToSlide(index) {
+    currentIndex = index;
+    updateSlidePosition();
+}
+
+// Auto-carousel effect
+function nextSlide() {
+    const totalSlides = Math.ceil(totalCards / visibleCards);
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlidePosition();
+}
+
+// Initialize auto-slide every 3 seconds
+setInterval(nextSlide, 3000);
+
+// Update visible cards and create dots on load and resize
+window.addEventListener('resize', updateVisibleCards);
+window.addEventListener('load', updateVisibleCards);

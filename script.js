@@ -154,55 +154,73 @@ observer.observe(document.querySelector(".gallery"));
   });
 }
 
-// Array of testimonial data
-const testimonials = [
-  {
-      image: '/assets/images/men1.gif',
-      name: 'Mr. Viswajit Mallick',
-     /*  userTag: '@polog', */
-      title: '"Just On Services made our wedding day truly magical! Their attention to detail and dedication to our vision exceeded our expectations.” ',
-     /*  text: 'As one of the top real estate teams in Canada, we leverage software like MyFinder.ai to help deploy new dynamic ad campaigns. With the least effort of a few clicks.' */
-  },
-  {
-      image: '/assets/images/men2.gif',
-      name: 'Mr. Deepak Kumar Pani',
-      /* userTag: '@slee', */
-      title: '“We hosted our annual corporate event with Just On Services, and it was a huge success! They managed everything seamlessly.” ',
-      /* text: 'Sophia provides excellent customer service and attention to detail, making sure that all her clients are satisfied with their experience.' */
-  },
-  {
-      image: '/assets/images/women1.gif',
-      name: 'John Smith',
-     /*  userTag: '@jsmith', */
-      title: 'Reliable and Professional',
-      /* text: 'John’s reliability and professionalism make him one of the top agents in his area. Clients trust his advice and guidance in real estate.' */
-  }
-];
+
+//------------------------------------ TESTIMONIAL
 
 let currentIndex = 0;
+let visibleCards = 3; // Default visible cards for large screens
+const experts = document.querySelector('.experts');
+const totalCards = document.querySelectorAll('.expert-card').length;
+const dotsContainer = document.querySelector('.carousel-dots');
 
-function changeTestimonial(index) {
-  document.getElementById('testimonial-image').src = testimonials[index].image;
-  document.getElementById('testimonial-name').textContent = testimonials[index].name;
-  document.getElementById('testimonial-user-tag').textContent = testimonials[index].userTag;
-  document.getElementById('testimonial-title').textContent = testimonials[index].title;
-  document.getElementById('testimonial-text').textContent = testimonials[index].text;
+// Adjust number of visible cards based on screen width
+function updateVisibleCards() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth > 992) {
+        visibleCards = 3;
+    } else if (screenWidth > 768) {
+        visibleCards = 2;
+    } else {
+        visibleCards = 1;
+    }
 
-  document.querySelectorAll('.nav-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-  });
+    createDots();
+    updateSlidePosition();
 }
 
-function startAutoCycle() {
-  setInterval(() => {
-      currentIndex = (currentIndex + 1) % testimonials.length;
-      changeTestimonial(currentIndex);
-  }, 5000); // Change every 5 seconds
+// Create dots for navigation
+function createDots() {
+    dotsContainer.innerHTML = '';
+    const totalSlides = Math.ceil(totalCards / visibleCards);
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === currentIndex) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
 }
 
-// Initial load of the first testimonial
-changeTestimonial(currentIndex);
-startAutoCycle();
+// Update slide position based on the current index
+function updateSlidePosition() {
+    const offset = -currentIndex * (100 / visibleCards);
+    experts.style.transform = `translateX(${offset}%)`;
+
+    // Update active dot
+    document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+
+// Go to a specific slide
+function goToSlide(index) {
+    currentIndex = index;
+    updateSlidePosition();
+}
+
+// Auto-carousel effect
+function nextSlide() {
+    const totalSlides = Math.ceil(totalCards / visibleCards);
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlidePosition();
+}
+
+// Initialize auto-slide every 3 seconds
+setInterval(nextSlide, 3000);
+
+// Update visible cards and create dots on load and resize
+window.addEventListener('resize', updateVisibleCards);
+window.addEventListener('load', updateVisibleCards);
 
 
 

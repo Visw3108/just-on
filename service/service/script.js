@@ -75,41 +75,25 @@ window.addEventListener("scroll", function () {
 /* ---------------------------------SERVICE FILTER------------------------- */
 
 
-document.querySelectorAll('.filter').forEach(button => {
-  button.addEventListener('click', () => {
-      // Remove 'active' class from all buttons and add to the clicked button
-      document.querySelectorAll('.filter').forEach(btn => btn.classList.remove('active'));
+const filterButtons = document.querySelectorAll('.filter');
+  const productCards = document.querySelectorAll('.product-card');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
-      
-      // Get the selected filter category
-      const filterValue = button.getAttribute('data-filter');
-      
-      // Loop through each product card
-      document.querySelectorAll('.product-card').forEach(card => {
-          // Check if the product card matches the selected filter
-          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-              card.classList.remove('hidden'); // Remove hidden class to show
-              card.style.display = 'block';
 
-              // Trigger opacity and scale in transition
-              setTimeout(() => {
-                  card.style.opacity = '1';
-                  card.style.transform = 'scale(1)';
-              }, 10); // Slight delay to apply transition
-          } else {
-              // Set opacity and transform transition
-              card.style.opacity = '0';
-              card.style.transform = 'scale(0.8)';
+      const filter = button.getAttribute('data-filter');
 
-              // Add hidden class after the transition ends
-              setTimeout(() => {
-                  card.style.display = 'none';
-                  card.classList.add('hidden'); // Add hidden class to fully hide
-              }, 300); // Match this delay to the CSS transition duration
-          }
+      productCards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
       });
+    });
   });
-});
 
 /*---------------------------------- PRIVECY---------------------------------- */
 

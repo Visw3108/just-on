@@ -954,9 +954,10 @@
 
 .goals-list li::before {
   content: "✔";
-  color: #8BC34A; /* Green check color */
+  color: var(--secondary-color); /* Green check color */
   margin-right: 8px;
   font-size: 1.2em;
+  margin-bottom: 5px;
 }
 
 /* Responsive Design */
