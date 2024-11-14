@@ -7,8 +7,8 @@ $dbname = "justonsdb"; */
 
 // Live Database credentials
 $servername = "localhost";
-$username = "root";
-$password = "";
+$username = "justonservice";
+$password = "uXxrHBgk)aAr";
 $dbname = "justonsdb";
 
 // Create connection

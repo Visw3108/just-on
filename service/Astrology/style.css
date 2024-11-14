@@ -801,9 +801,9 @@
 }
 
 .our-service h2 {
-    font-size: 38px;
+    font-size: 5rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     font-family: var(--ff-league-spartan);
     color: var(--black);
 }
