@@ -58,56 +58,82 @@ window.addEventListener("scroll", function () {
 });
 
 //------------------ WELCOME-----------------------------------------
+    // Fade-in effect
+    window.addEventListener("scroll", function () {
+      const element = document.querySelector(".fade-in");
+      const position = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+      
+      if (position < screenPosition) {
+          element.classList.add("active");
+      }
+  });
 
- // Fade-in up transition effect when scrolling to the section
+
+
+// ABOUT SECTION
+
+ // Fade-in transition for the image when scrolling to the section
  document.addEventListener("DOMContentLoaded", function() {
-  const welcomeContent = document.querySelector(".welcome-content");
+  const imageContainer = document.querySelector(".image-container");
   window.addEventListener("scroll", function() {
-      const section = document.getElementById("welcome-section");
+      const section = document.getElementById("about-section");
       const sectionPosition = section.getBoundingClientRect().top;
       const screenPosition = window.innerHeight;
       if (sectionPosition < screenPosition) {
-          welcomeContent.classList.add("fade-in-up");
+          imageContainer.classList.add("fade-in");
       }
   });
 });
 
-document.querySelectorAll('.filter').forEach(button => {
-  button.addEventListener('click', () => {
-      // Remove 'active' class from all buttons and add to the clicked button
-      document.querySelectorAll('.filter').forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-      
-      // Get the selected filter category
-      const filterValue = button.getAttribute('data-filter');
-      
-      // Loop through each product card
-      document.querySelectorAll('.product-card').forEach(card => {
-          // Check if the product card matches the selected filter
-          if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-              card.classList.remove('hidden'); // Remove hidden class to show
-              card.style.display = 'block';
+// WHO WE ARE
 
-              // Trigger opacity and scale in transition
-              setTimeout(() => {
-                  card.style.opacity = '1';
-                  card.style.transform = 'scale(1)';
-              }, 10); // Slight delay to apply transition
-          } else {
-              // Set opacity and transform transition
-              card.style.opacity = '0';
-              card.style.transform = 'scale(0.8)';
+document.addEventListener("DOMContentLoaded", function () {
+  const fadeInElements = document.querySelectorAll(".fade-in-left");
 
-              // Add hidden class after the transition ends
-              setTimeout(() => {
-                  card.style.display = 'none';
-                  card.classList.add('hidden'); // Add hidden class to fully hide
-              }, 300); // Match this delay to the CSS transition duration
-          }
-      });
+  const observer = new IntersectionObserver(
+      (entries, observer) => {
+          entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  entry.target.style.opacity = "1";
+                  entry.target.style.transform = "translateX(0)";
+                  observer.unobserve(entry.target); // Stop observing once effect is applied
+              }
+          });
+      },
+      { threshold: 0.1 }
+  );
+
+  fadeInElements.forEach((el) => observer.observe(el));
+});
+
+
+
+// -----------------WHAT WE DO
+
+// Fade-in transition for the image when scrolling to the section
+document.addEventListener("DOMContentLoaded", function() {
+  const imageContainer = document.querySelector(".what-we-do-image-container");
+  window.addEventListener("scroll", function() {
+      const section = document.getElementById("what-we-do-section");
+      const sectionPosition = section.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight;
+      if (sectionPosition < screenPosition) {
+          imageContainer.classList.add("fade-in");
+      }
   });
 });
 
+
+// Intersection Observer for fade-in effect
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+});
+observer.observe(document.getElementById('venue-section'));
 
 
 document.addEventListener('contextmenu', function(e) {
@@ -135,3 +161,10 @@ document.addEventListener('keydown', function(e) {
     e.preventDefault();
   }
 });
+
+
+
+
+
+
+  
