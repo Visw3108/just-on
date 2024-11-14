@@ -72,6 +72,9 @@ window.addEventListener("scroll", function () {
   });
 });
 
+/* ---------------------------------SERVICE FILTER------------------------- */
+
+
 document.querySelectorAll('.filter').forEach(button => {
   button.addEventListener('click', () => {
       // Remove 'active' class from all buttons and add to the clicked button
@@ -108,7 +111,7 @@ document.querySelectorAll('.filter').forEach(button => {
   });
 });
 
-
+/*---------------------------------- PRIVECY---------------------------------- */
 
 document.addEventListener('contextmenu', function(e) {
   e.preventDefault();
