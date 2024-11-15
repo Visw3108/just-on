@@ -327,20 +327,21 @@ body {
 /* Header styling */
 /* Header styling */
 /* Header styles remain the same */
+/* General Header Styles */
 .header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   background-color: var(--white-1);
-  padding-block: 8px; /* Reduced header height */
+  padding-block: 8px;
   border-block-end: 1px solid var(--cultured);
   z-index: 4;
   transition: var(--transition-1);
 }
 
-.header.active { 
-  filter: drop-shadow(var(--shadow-2)); 
+.header.active {
+  filter: drop-shadow(var(--shadow-2));
 }
 
 .header > .container {
@@ -350,14 +351,15 @@ body {
 }
 
 .logo {
-  width: 100%;
-  max-width: 150px; /* Slightly smaller logo */
+  max-width: 150px;
   height: auto;
   transition: all 0.3s ease;
 }
 
+/* Navbar Toggle Button */
 .nav-toggle-btn {
-  font-size: 36px;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 .nav-toggle-btn.active .open,
@@ -370,6 +372,7 @@ body {
   display: block;
 }
 
+/* Navbar Menu */
 .navbar {
   background-color: var(--white-1);
   position: absolute;
@@ -381,19 +384,19 @@ body {
   padding-inline: 0;
   border: 1px solid var(--cultured);
   transition: max-height 0.3s ease, visibility 0.3s ease;
-  max-height: 0; /* Initial height set to 0 */
+  max-height: 0;
   visibility: hidden;
   overflow: hidden;
 }
 
 .navbar.active {
-  max-height: 200px; /* Reduced max height */
+  max-height: 250px;
   visibility: visible;
   transition: max-height 0.5s ease, visibility 0.5s ease;
 }
 
 .navbar-list {
-  padding: 10px 10px; /* Reduced padding for navbar items */
+  padding: 10px 10px;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -407,7 +410,7 @@ body {
   font-family: var(--ff-league-spartan);
   font-size: var(--fs-4);
   line-height: 1.2;
-  padding-block: 6px; /* Reduced padding for links */
+  padding-block: 6px;
   transition: color 0.3s ease;
 }
 
@@ -415,22 +418,56 @@ body {
   color: var(--primary-color);
 }
 
+/* Button in Header */
 .header .btn {
-  margin-block-start: 5px; /* Reduced button margin */
+  margin-block-start: 5px;
 }
 
-/* Responsive logo adjustments */
+/* Responsive Adjustments for Smaller Screens */
 @media (max-width: 768px) {
+  /* Adjust the logo size for tablets */
   .logo {
-    max-width: 130px; /* Smaller logo for tablet screens */
+    max-width: 130px;
   }
 }
 
 @media (max-width: 480px) {
+  /* Header adjustments for mobile screens */
+  .header {
+    padding-block: 6px; /* Further reduce padding */
+  }
+
+  /* Smaller logo for mobile screens */
   .logo {
-    max-width: 110px; /* Smaller logo for mobile screens */
+    max-width: 110px;
+  }
+
+  /* Smaller font size for toggle button */
+  .nav-toggle-btn {
+    font-size: 24px;
+  }
+
+  /* Navbar menu adjustments for mobile screens */
+  .navbar {
+    max-width: calc(100% - 20px);
+  }
+
+  /* Reduced max-height for smaller navbar on mobile screens */
+  .navbar.active {
+    max-height: 200px;
+  }
+
+  /* Navbar list and link adjustments for mobile */
+  .navbar-list {
+    padding: 8px 8px;
+  }
+
+  .navbar-link {
+    font-size: var(--fs-5); /* Slightly smaller font size for links */
+    padding-block: 4px;
   }
 }
+
 
 
 /* Hero Section */
