@@ -586,7 +586,7 @@ body {
 /* Extra Small Screens (e.g., small phones) */
 @media (max-width: 576px) {
   .hero-section {
-    height: 60vh; /* Further reduce height for mobile phones */
+    height: 40vh; /* Further reduce height for mobile phones */
   }
   .content h1 {
     font-size: 1.8rem;
@@ -607,7 +607,7 @@ body {
 /* Very Small Screens (e.g., extra-small phones) */
 @media (max-width: 400px) {
   .hero-section {
-    height: 50vh; /* Minimum height for very small screens */
+    height: 35vh; /* Minimum height for very small screens */
   }
   .content h1 {
     font-size: 1.5rem;
