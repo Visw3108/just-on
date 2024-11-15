@@ -470,6 +470,68 @@ body {
 
 
 
+ /* WhatsApp Chat Button Styles */
+ .whatsapp-chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  z-index: 1000;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.whatsapp-chat-button img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-chat-button:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.whatsapp-chat-button:hover img {
+  transform: rotate(10deg);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .whatsapp-chat-button {
+    bottom: 16px;
+    right: 12px;
+    padding: 10px;
+  }
+
+  .whatsapp-chat-button img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsapp-chat-button {
+    bottom: 12px;
+    right: 8px;
+    padding: 8px;
+  }
+
+  .whatsapp-chat-button img {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+
 /* Hero Section */
 .hero-section {
   height: 90vh;
