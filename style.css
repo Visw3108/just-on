@@ -433,7 +433,7 @@ body {
 }
 
 
-/* General Styles for Hero Section */
+/* Hero Section */
 .hero-section {
   height: 90vh;
   position: relative;
@@ -529,6 +529,7 @@ body {
 }
 
 /* Responsive Styles */
+
 /* Large Screens (e.g., desktops) */
 @media (max-width: 1200px) {
   .content h1 {
@@ -563,6 +564,9 @@ body {
 
 /* Small Screens (e.g., tablets in portrait mode, large phones) */
 @media (max-width: 768px) {
+  .hero-section {
+    height: 70vh; /* Reduce height for smaller screens */
+  }
   .content h1 {
     font-size: 2rem;
     margin-top: 10rem;
@@ -581,6 +585,9 @@ body {
 
 /* Extra Small Screens (e.g., small phones) */
 @media (max-width: 576px) {
+  .hero-section {
+    height: 60vh; /* Further reduce height for mobile phones */
+  }
   .content h1 {
     font-size: 1.8rem;
     margin-top: 5rem;
@@ -599,6 +606,9 @@ body {
 
 /* Very Small Screens (e.g., extra-small phones) */
 @media (max-width: 400px) {
+  .hero-section {
+    height: 50vh; /* Minimum height for very small screens */
+  }
   .content h1 {
     font-size: 1.5rem;
     margin-top: 3rem;
