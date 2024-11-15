@@ -15,6 +15,7 @@ const addEventOnElem = function (elem, type, callback) {
 }
 
 
+
 /**
  * toggle navbar
  */
@@ -26,30 +27,16 @@ const navToggler = document.querySelector("[data-nav-toggler]");
 const toggleNavbar = function () {
   navbar.classList.toggle("active");
   navToggler.classList.toggle("active");
-};
+}
 
-// Add event listener to the toggler to toggle the navbar
-navToggler.addEventListener("click", toggleNavbar);
+addEventOnElem(navToggler, "click", toggleNavbar);
 
 const closeNavbar = function () {
   navbar.classList.remove("active");
   navToggler.classList.remove("active");
-};
+}
 
-// Add event listener to each navbar link to close the navbar
-navbarLinks.forEach(link => {
-  link.addEventListener("click", closeNavbar);
-});
-
-// Close the navbar if the user clicks outside of it
-document.addEventListener("click", function (event) {
-  // Check if the click was outside the navbar and toggler
-  if (!navbar.contains(event.target) && !navToggler.contains(event.target)) {
-    closeNavbar();
-  }
-});
-
-
+addEventOnElem(navbarLinks, "click", closeNavbar);
 
 
 
