@@ -470,11 +470,10 @@ body {
 
 
 
- /* WhatsApp Chat Button Styles */
- .whatsapp-chat-button {
+.phone-call-button,
+.whatsapp-chat-button {
   position: fixed;
-  bottom: 20px;
-  right: 16px;
+  right: 14px;
   z-index: 1000;
   background-color: #25D366;
   border-radius: 50%;
@@ -483,34 +482,52 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 50px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
+/* Phone Call Button Position and Color */
+.phone-call-button {
+  bottom: 90px;
+  background-color: #007bff;
+}
+
+/* WhatsApp Chat Button Position */
+.whatsapp-chat-button {
+  bottom: 20px;
+}
+
+/* Icon Styles */
+.phone-call-button img,
 .whatsapp-chat-button img {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
   transition: transform 0.3s ease;
 }
 
+/* Hover Effects */
+.phone-call-button:hover,
 .whatsapp-chat-button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
   transform: scale(1.1);
 }
 
+.phone-call-button:hover img,
 .whatsapp-chat-button:hover img {
   transform: rotate(10deg);
 }
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .phone-call-button,
   .whatsapp-chat-button {
-    bottom: 16px;
-    right: 12px;
+    right: 16px;
     padding: 10px;
   }
 
+  .phone-call-button img,
   .whatsapp-chat-button img {
     width: 32px;
     height: 32px;
@@ -518,12 +535,21 @@ body {
 }
 
 @media (max-width: 480px) {
+  .phone-call-button {
+    bottom: 70px;
+  }
+
   .whatsapp-chat-button {
     bottom: 12px;
-    right: 8px;
+  }
+
+  .phone-call-button,
+  .whatsapp-chat-button {
+    right: 12px;
     padding: 8px;
   }
 
+  .phone-call-button img,
   .whatsapp-chat-button img {
     width: 28px;
     height: 28px;
