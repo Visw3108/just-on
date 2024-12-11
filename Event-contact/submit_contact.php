@@ -1,15 +1,15 @@
 <?php
 // Local Database credentials
-/* $servername = "localhost";
+$servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "justonsdb"; */
+$dbname = "justonsdb";
 
 // Live Database credentials
-$servername = "localhost";
+/* $servername = "localhost";
 $username = "justonservice";
 $password = "uXxrHBgk)aAr";
-$dbname = "justonsdb";
+$dbname = "justonsdb"; */
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

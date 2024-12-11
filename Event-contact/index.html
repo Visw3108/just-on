@@ -15,7 +15,7 @@
   <!-- 
     - custom css link
   -->
-  <link rel="stylesheet" href="/event-contact/style.css">
+  <link rel="stylesheet" href="../event-contact/style.css">
 
   <!-- 
     - google font link
@@ -36,7 +36,7 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="/"><img src="/assets/images/LOGO.png" alt="log" class="logo"></a>
+      <a href="/"><img src="../assets/images/LOGO.png" alt="log" class="logo"></a>
 
       <nav class="navbar container" data-navbar>
         <ul class="navbar-list">
@@ -46,11 +46,11 @@
           </li>
 
           <li>
-            <a href="/About/" class="navbar-link" data-nav-link>About Us</a>
+            <a href="../about/" class="navbar-link" data-nav-link>About Us</a>
           </li>
 
           <li class="dropdown">
-            <a href="/service/service/" class="navbar-link" data-nav-link>Services</a>
+            <a href="./service/service/" class="navbar-link" data-nav-link>Services</a>
             <!-- <ul class="dropdown-menu">
               <li><a href="#" class="dropdown-link">Events</a></li>
               <li><a href="#" class="dropdown-link">Photography</a></li>
@@ -61,11 +61,11 @@
           
 
           <li>
-            <a href="/fashion/" class="navbar-link" data-nav-link>Fashion</a>
+            <a href="../fashion/" class="navbar-link" data-nav-link>Fashion</a>
           </li>
 
           <li>
-            <a href="/service/Astrology/" class="navbar-link" data-nav-link>Astrology</a>
+            <a href="../service/astrology/" class="navbar-link" data-nav-link>Astrology</a>
           </li>
 
         <!--   <li>
@@ -173,6 +173,26 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent default form submission
+
+      var formData = new FormData(this);
+
+      // Send the form data using AJAX
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'submit_contact.php', true);
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          alert('Data submitted successfully!');
+        } else {
+          alert('Error submitting data.');
+        }
+      };
+      xhr.send(formData);
+    });
+  </script>
 
 </body>
 
